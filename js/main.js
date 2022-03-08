@@ -1,5 +1,5 @@
 let url = window.location.pathname;
-console.log(url);
+
 //-Animacija pri učitavanju stranice-
 window.onload = function() {
     setTimeout(()=>{
@@ -19,7 +19,7 @@ $('#m').change(filter);
 //-Dohvatanje podata-
 function ajaxData(file, callback){
     $.ajax({
-        url: "assets/data/" + file + ".json",
+        url: url=="/PlantPlanet/" ? "assets/data/":"data/" + file + ".json",
         method: "get",
         dataType: "json",
         success: function(response){
@@ -78,7 +78,7 @@ function displayHeader(data){
 
     displayFooter();
 
-    if(url == "/index.html"){
+    if(url == "/PlantPlanet/"){
         localStorage.setItem("slajder",JSON.stringify(data));
         changeSlide();
     }
@@ -152,9 +152,8 @@ function displayPlants(data){
     data = sort(data);
 
     let items;
-    if(url=="/assets/shop.html"){
+    if(url == "/PlantPlanet/assets/shop.html"){
         items = Number($("#pagination").val());
-       if(items == 12 && page > 2){page = 1}
     }
     else{
         items = 3;
@@ -173,7 +172,7 @@ function displayPlants(data){
         for(let p of pagData){
             html +=`<div class="a col-11 col-md-5 col-xl-3 m-3 p-3 w-bg rounded" onclick="createCard(${p.id})" id="${p.id}">
                         ${getDis(p.price.discount)}
-                        <img src="${url == "/index.html" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
+                        <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
                         <div class="p-3">
                             <h5>${p.name}</h5>
                             <p class="price h2">${p.price.new}$ <mark>${p.price.old ? p.price.old + "$" : ""}</mark></p>
@@ -222,7 +221,7 @@ function pgination(datas, n, cPage){
 function displayNav(data){
     let html = "";
     for(const d of data){
-        if(url == "/index.html"){
+        if(url == "/PlantPlanet/"){
             if(d.title=="Home"){
                 html += `<li><a href="${d.href}">${d.title}</a></li>`
             }
@@ -258,7 +257,7 @@ function displayNav(data){
     });
 
     try {
-        if(url == "/index.html"){
+        if(url == "/PlantPlanet/"){
             filter();
         }
         ajaxData("durability", displayDurability);
@@ -320,7 +319,9 @@ function displayHabitat(data){
     if($("#habitat").length!=0){
         $('#habitat').change(filter);
     }
-    ajaxData("select", select);
+    if(url == "/PlantPlanet/assets/shop.html"){
+        ajaxData("select", select);
+    }
 
     localStorage.setItem("Stanista", JSON.stringify(data));
 }
@@ -338,10 +339,8 @@ function select(data){
         div.html(html);
     }
 
-    if($("#sort-div").length!=0){
-        $("#sort").change(filter);
-        $("#pagination").change(filter);
-    }
+    $("#sort").change(filter);
+    $("#pagination").change(filter);
     ajaxData("plants", displayPlants);
 }
 
@@ -500,7 +499,7 @@ function createCard(id){
                         <div class="crd rounded">
                             <div class="row justify-content-between p-1 p-sm-3 p-lg-5 w-100">
                                 <div class="col-md-6 d-none d-md-block">
-                                    <img src="${url == "/index.html" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}" class="w-75" id="big-one"/>
+                                    <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}" class="w-75" id="big-one"/>
                                     <div class="row justify-content-between p-2 w-100">
                                         ${retrnMicroImgs(p.id)}
                                     </div>
@@ -568,11 +567,11 @@ function retrnMicroImgs(id){
     for(let p of pl){
         if(p.id==id){
             html +=`<div class="col-5 p-3" onclick="displayMicroImgs(${p.id}, 1)">
-                        <img src="${url == "/index.html" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}"/>
+                        <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}"/>
                     </div>`
             if(p.img.src.length==3){
                 html +=`<div class="col-5 p-3" onclick="displayMicroImgs(${p.id}, 2)">
-                            <img src="${url == "/index.html" ? "assets/" : ""}${getImg(p.img.src, 2)}" alt="${p.img.alt}"/>
+                            <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 2)}" alt="${p.img.alt}"/>
                         </div>`
             }
         }
@@ -585,7 +584,7 @@ function displayMicroImgs(id, img){
     let pl = getLocalStorageItem("Biljke");
     for(let p of pl){
         if(p.id==id){
-            document.getElementById("big-one").setAttribute("src", url == "/index.html" ? "assets/"+getImg(p.img.src, img) : getImg(p.img.src, img));
+            document.getElementById("big-one").setAttribute("src", url == "/PlantPlanet/" ? "assets/"+getImg(p.img.src, img) : getImg(p.img.src, img));
         }
     }
 }
@@ -627,7 +626,7 @@ function createSidebar(array, type){
             for(i of array){
                 if(type == "cart" ? p.id==i.id : p.id==i){
                     html +=`<div class="w col-8 col-md-4 m-3 p-3 w-bg">
-                                <img src="${url == "/index.html" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
+                                <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
                                 <div class="p-3">
                                     <h5>${p.name}</h5>
                                     <p class="price h2">${p.price.new}$ <mark>${p.price.old ? p.price.old + "$" : ""}</mark></p>
@@ -653,7 +652,7 @@ function createSidebar(array, type){
         }
     }
     else {
-        html += `<p class="mt-5">Your ${type} is empty!<br/>Visit our <a href="${url == "/index.html" ? "assets/" : ""}shop.html">shop</a> to add new items.</p>`;
+        html += `<p class="mt-5">Your ${type} is empty!<br/>Visit our <a href="${url == "/PlantPlanet/" ? "assets/" : ""}shop.html">shop</a> to add new items.</p>`;
     }
     html += "</div></div>"
     $("main").append(html);
@@ -808,7 +807,7 @@ function changeSlide(){
 }
 
 //-Validaija formi-
-if(url=="/assets/contact.html"){
+if(url == "/PlantPlanet/assets/contact.html"){
     document.querySelector("#btnSubmit").addEventListener("click", messageValidation);
 }
 
