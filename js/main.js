@@ -10,13 +10,6 @@ window.onload = function() {
 }
 
 ajaxData("slider",displayHeader);
-if(url == "/PlantPlanet/assets/shop.html"){
-    $('#search').keyup(filter);
-    $('#stock').change(filter);
-    $('#discounted').change(filter);
-    $('#shipping').change(filter);
-    $('#m').change(filter);
-}
 
 //-Dohvatanje podata-
 function ajaxData(file, callback){
@@ -93,6 +86,14 @@ function displayHeader(data){
             localStorage.removeItem("slajder");
         }
     }
+    
+    if(url == "/PlantPlanet/assets/shop.html"){
+        $('#search').keyup(filter);
+        $('#stock').change(filter);
+        $('#discounted').change(filter);
+        $('#shipping').change(filter);
+        $('#m').change(filter);
+    }
 }
 
 //-Ispis footera(isto za svaku stranicu)-
@@ -138,7 +139,7 @@ function displayShipping(){
 function displayLinks(data){
     html = "";
     for(d of data){
-        html += `<p><a href="../${d.href}" target="_blank"><i class="${d.class}"></i> ${d.title}</a></p>`
+        html += `<p><a href="${url == "/PlantPlanet/index.html" || url == "/PlantPlanet/" ? "" : "../"+d.href}" target="_blank"><i class="${d.class}"></i> ${d.title}</a></p>`
     }
     $('#link').append(html);
 }
