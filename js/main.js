@@ -19,7 +19,7 @@ $('#m').change(filter);
 //-Dohvatanje podata-
 function ajaxData(file, callback){
     let u;
-    if(url=="/PlantPlanet/index.html"){
+    if(url=="/PlantPlanet/index.html" || url=="/PlantPlanet/"){
         u ="assets/data/";
     }else{
         u = "data/";
