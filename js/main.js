@@ -18,8 +18,14 @@ $('#m').change(filter);
 
 //-Dohvatanje podata-
 function ajaxData(file, callback){
+    let u;
+    if(url=="/PlantPlanet/index.html"){
+        u ="assets/data/";
+    }else{
+        u = "data/";
+    }
     $.ajax({
-        url: url=="/PlantPlanet/" ? "assets/data/":"data/" + file + ".json",
+        url: u + file + ".json",
         method: "get",
         dataType: "json",
         success: function(response){
@@ -78,7 +84,7 @@ function displayHeader(data){
 
     displayFooter();
 
-    if(url == "/PlantPlanet/"){
+    if(url == "/PlantPlanet/index.html"){
         localStorage.setItem("slajder",JSON.stringify(data));
         changeSlide();
     }
@@ -172,7 +178,7 @@ function displayPlants(data){
         for(let p of pagData){
             html +=`<div class="a col-11 col-md-5 col-xl-3 m-3 p-3 w-bg rounded" onclick="createCard(${p.id})" id="${p.id}">
                         ${getDis(p.price.discount)}
-                        <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
+                        <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
                         <div class="p-3">
                             <h5>${p.name}</h5>
                             <p class="price h2">${p.price.new}$ <mark>${p.price.old ? p.price.old + "$" : ""}</mark></p>
@@ -221,7 +227,7 @@ function pgination(datas, n, cPage){
 function displayNav(data){
     let html = "";
     for(const d of data){
-        if(url == "/PlantPlanet/"){
+        if(url == "/PlantPlanet/index.html"){
             if(d.title=="Home"){
                 html += `<li><a href="${d.href}">${d.title}</a></li>`
             }
@@ -257,7 +263,7 @@ function displayNav(data){
     });
 
     try {
-        if(url == "/PlantPlanet/"){
+        if(url == "/PlantPlanet/index.html"){
             filter();
         }
         ajaxData("durability", displayDurability);
@@ -499,7 +505,7 @@ function createCard(id){
                         <div class="crd rounded">
                             <div class="row justify-content-between p-1 p-sm-3 p-lg-5 w-100">
                                 <div class="col-md-6 d-none d-md-block">
-                                    <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}" class="w-75" id="big-one"/>
+                                    <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}" class="w-75" id="big-one"/>
                                     <div class="row justify-content-between p-2 w-100">
                                         ${retrnMicroImgs(p.id)}
                                     </div>
@@ -567,11 +573,11 @@ function retrnMicroImgs(id){
     for(let p of pl){
         if(p.id==id){
             html +=`<div class="col-5 p-3" onclick="displayMicroImgs(${p.id}, 1)">
-                        <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}"/>
+                        <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}"/>
                     </div>`
             if(p.img.src.length==3){
                 html +=`<div class="col-5 p-3" onclick="displayMicroImgs(${p.id}, 2)">
-                            <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 2)}" alt="${p.img.alt}"/>
+                            <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 2)}" alt="${p.img.alt}"/>
                         </div>`
             }
         }
@@ -584,7 +590,7 @@ function displayMicroImgs(id, img){
     let pl = getLocalStorageItem("Biljke");
     for(let p of pl){
         if(p.id==id){
-            document.getElementById("big-one").setAttribute("src", url == "/PlantPlanet/" ? "assets/"+getImg(p.img.src, img) : getImg(p.img.src, img));
+            document.getElementById("big-one").setAttribute("src", url == "/PlantPlanet/index.html" ? "assets/"+getImg(p.img.src, img) : getImg(p.img.src, img));
         }
     }
 }
@@ -626,7 +632,7 @@ function createSidebar(array, type){
             for(i of array){
                 if(type == "cart" ? p.id==i.id : p.id==i){
                     html +=`<div class="w col-8 col-md-4 m-3 p-3 w-bg">
-                                <img src="${url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
+                                <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
                                 <div class="p-3">
                                     <h5>${p.name}</h5>
                                     <p class="price h2">${p.price.new}$ <mark>${p.price.old ? p.price.old + "$" : ""}</mark></p>
@@ -652,7 +658,7 @@ function createSidebar(array, type){
         }
     }
     else {
-        html += `<p class="mt-5">Your ${type} is empty!<br/>Visit our <a href="${url == "/PlantPlanet/" ? "assets/" : ""}shop.html">shop</a> to add new items.</p>`;
+        html += `<p class="mt-5">Your ${type} is empty!<br/>Visit our <a href="${url == "/PlantPlanet/index.html" ? "assets/" : ""}shop.html">shop</a> to add new items.</p>`;
     }
     html += "</div></div>"
     $("main").append(html);
