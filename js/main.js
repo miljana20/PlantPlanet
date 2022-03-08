@@ -102,7 +102,7 @@ function displayFooter(){
     html += `<div class="container row mx-auto"> 
                 <div class="col-12 col-md-4 mb-4">
                     <div class="logo">
-                        <a href="../index.html"><i class="fab fa-pagelines"></i> Planet</a>
+                        <a href="' + url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? '../PlantPlanet/index.html' : '../index.html'"><i class="fab fa-pagelines"></i> Planet</a>
                     </div>
                     <p>~ Place of love for nature ~</p>
                 </div>
