@@ -67,9 +67,7 @@ function displayHeader(data){
 
     document.getElementById("w-sidebar").addEventListener("click", function(){
         let w = getLocalStorageItem("WishList");
-        createSidebar(w?w:[
-            
-        ], "wish list");
+        createSidebar(w, "wish list");
     });
     document.getElementById("c-sidebar").addEventListener("click", function(){
         let c = getLocalStorageItem("cart");
@@ -180,7 +178,7 @@ function displayPlants(data){
         for(let p of pagData){
             html +=`<div class="a col-11 col-md-5 col-xl-3 m-3 p-3 w-bg rounded" onclick="createCard(${p.id})" id="${p.id}">
                         ${getDis(p.price.discount)}
-                        <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
+                        <img src="${url == "/PlantPlanet/index.html" || url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
                         <div class="p-3">
                             <h5>${p.name}</h5>
                             <p class="price h2">${p.price.new}$ <mark>${p.price.old ? p.price.old + "$" : ""}</mark></p>
