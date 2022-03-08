@@ -88,7 +88,7 @@ function displayHeader(data){
         localStorage.setItem("slajder",JSON.stringify(data));
         changeSlide();
     }
-    if(url != "/index.html"){
+    else{
         if(getLocalStorageItem("slajder")){
             localStorage.removeItem("slajder");
         }
