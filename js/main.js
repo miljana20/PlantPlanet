@@ -1,5 +1,4 @@
-$(document).ready( function(){
-    let url = window.location.pathname;
+let url = window.location.pathname;
 
 //-Animacija pri učitavanju stranice-
 window.onload = function() {
@@ -10,10 +9,17 @@ window.onload = function() {
     }, 1200)
 }
 
+ajaxData("slider",displayHeader);
+$('#search').keyup(filter);
+$('#stock').change(filter);
+$('#discounted').change(filter);
+$('#shipping').change(filter);
+$('#m').change(filter);
+
 //-Dohvatanje podata-
 function ajaxData(file, callback){
     $.ajax({
-        url: url=="/index.html"?"/assets/data/":"/data" + file + ".json",
+        url: "../assets/data/" + file + ".json",
         method: "get",
         dataType: "json",
         success: function(response){
@@ -24,13 +30,6 @@ function ajaxData(file, callback){
         }
     })
 }
-
-ajaxData("slider",displayHeader);
-$('#search').keyup(filter);
-$('#stock').change(filter);
-$('#discounted').change(filter);
-$('#shipping').change(filter);
-$('#m').change(filter);
 
 //-Dohvatanje podataka iz LocalStorage-a-
 function getLocalStorageItem(name){
@@ -898,4 +897,3 @@ function al(name, type, x){
     }
     location.reload();
 }
-});
