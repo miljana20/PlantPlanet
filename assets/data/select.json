@@ -1,0 +1,46 @@
+[
+    {
+        "id":1,
+        "for": "sort",
+        "label":"<i class='fas fa-sort'></i> Sort by:",
+        "option":[
+            {
+                "value":"name-asc",
+                "title":"Name ascending"
+            },
+            {
+                "value":"name-desc",
+                "title":"Name descending"
+            },
+            {
+                "value":"discount",
+                "title":"Most discounted"
+            },
+            {
+                "value":"price-asc",
+                "title":"Price ascending"
+            },
+            {
+                "value":"price-desc",
+                "title":"Price descending"
+            }
+
+        ]
+    },
+    {
+        "id":2,
+        "for": "pagination",
+        "label":"<i class='fab fa-buromobelexperte'></i> Pagination:",
+        "option":[
+            {
+                "value":6,
+                "title":"Six product per page"
+            },
+            {
+                "value":12,
+                "title":"Twelve product per page"
+            }
+
+        ]
+    }
+]

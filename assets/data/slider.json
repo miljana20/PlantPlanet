@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "img":{
+            "src":"url(assets/img/slajd1.jpg)"
+        }
+    },
+    {
+        "id":2,
+        "img":{
+            "src":"url(assets/img/slajd2.jpg)"
+        }
+    },
+    {
+        "id":3,
+        "img":{
+            "src":"url(assets/img/slajd3.jpg)"
+        }
+    }
+]

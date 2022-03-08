@@ -1,0 +1,18 @@
+[
+    {
+        "id":1,
+        "value":"annual",
+        "label":"Annual"
+    },
+    {
+        "id":2,
+        "value":"bienial",
+        "label":"Bienial"
+
+    },
+    {
+        "id":3,
+        "value":"perennial",
+        "label":"Perennial"
+    }
+]

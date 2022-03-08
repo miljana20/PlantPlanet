@@ -1,0 +1,27 @@
+[
+    {
+        "id":1,
+        "label":"Loose",
+        "value":"loose"
+    },
+    {
+        "id":2,
+        "label":"Sandy ",
+        "value":"sandy "
+    },
+    {
+        "id":3,
+        "label":"Fertilized ",
+        "value":"fertilized "
+    },
+    {
+        "id":4,
+        "label":"Compacted  ",
+        "value":"compacted  "
+    },
+    {
+        "id":5,
+        "label":"Rocky",
+        "value":"rocky   "
+    }
+]
