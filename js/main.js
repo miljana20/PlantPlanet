@@ -12,7 +12,7 @@ window.onload = function() {
 //-Dohvatanje podata-
 function ajaxData(file, callback){
     $.ajax({
-        url: "../assets/data/" + file + ".json",
+        url: url=="/index.html"?"/assets/data/":"/data" + file + ".json",
         method: "get",
         dataType: "json",
         success: function(response){
