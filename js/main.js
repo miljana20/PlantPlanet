@@ -227,7 +227,7 @@ function pgination(datas, n, cPage){
 function displayNav(data){
     let html = "";
     for(const d of data){
-        if(url == "/PlantPlanet/index.html"){
+        if(url=="/PlantPlanet/index.html" || url=="/PlantPlanet/"){
             if(d.title=="Home"){
                 html += `<li><a href="${d.href}">${d.title}</a></li>`
             }
