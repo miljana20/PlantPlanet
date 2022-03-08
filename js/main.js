@@ -19,7 +19,7 @@ $('#m').change(filter);
 //-Dohvatanje podata-
 function ajaxData(file, callback){
     $.ajax({
-        url: "/assets/data/" + file + ".json",
+        url: "../assets/data/" + file + ".json",
         method: "get",
         dataType: "json",
         success: function(response){
@@ -320,9 +320,7 @@ function displayHabitat(data){
     if($("#habitat").length!=0){
         $('#habitat').change(filter);
     }
-    if(url == "/assets/shop.html"){
-        ajaxData("select", select);
-    }
+    ajaxData("select", select);
 
     localStorage.setItem("Stanista", JSON.stringify(data));
 }
@@ -340,8 +338,10 @@ function select(data){
         div.html(html);
     }
 
-    $("#sort").change(filter);
-    $("#pagination").change(filter);
+    if($("#sort-div").length!=0){
+        $("#sort").change(filter);
+        $("#pagination").change(filter);
+    }
     ajaxData("plants", displayPlants);
 }
 
