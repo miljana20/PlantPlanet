@@ -48,7 +48,7 @@ function getLocalStorageItem(name){
 function displayHeader(data){
     let html = "";
     html += `<div class="logo pt-3">
-                <a href="../PlantPlanet/index.html"><i class="fab fa-pagelines"></i> Planet</a>
+                <a href=url=="/PlantPlanet/index.html" || url=="/PlantPlanet/" ? "../PlantPlanet/index.html" : "../index.html"><i class="fab fa-pagelines"></i> Planet</a>
             </div>
             <nav class="pt-3 d-none d-md-block"><ul id="nav"></ul></nav>
             <ul class="pt-2" id="icons">
