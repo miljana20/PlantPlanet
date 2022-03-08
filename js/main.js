@@ -191,10 +191,10 @@ function displayPlants(data){
     else{
         html += `<div class="text-danger h2 bg rounded p-3 mt-5">Sorry, there are currently no products with selected features ...</div>`
     }
-    if($('#display').length != 0){
+    if(url=="/PlantPlanet/assets/shop.html"){
         $('#display').html(html);
     }
-    else if($('#disc-div').length != 0){
+    else if(url=="/PlantPlanet/index.html" || url=="/PlantPlanet/"){
         $('#disc-div').append(html);
     }
 }
