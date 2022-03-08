@@ -10,11 +10,13 @@ window.onload = function() {
 }
 
 ajaxData("slider",displayHeader);
-$('#search').keyup(filter);
-$('#stock').change(filter);
-$('#discounted').change(filter);
-$('#shipping').change(filter);
-$('#m').change(filter);
+if(url == "/PlantPlanet/assets/shop.html"){
+    $('#search').keyup(filter);
+    $('#stock').change(filter);
+    $('#discounted').change(filter);
+    $('#shipping').change(filter);
+    $('#m').change(filter);
+}
 
 //-Dohvatanje podata-
 function ajaxData(file, callback){
@@ -53,7 +55,7 @@ function getLocalStorageItem(name){
 function displayHeader(data){
     let html = "";
     html += `<div class="logo pt-3">
-                <a href="../index.html"><i class="fab fa-pagelines"></i> Planet</a>
+                <a href="../PlantPlanet/index.html"><i class="fab fa-pagelines"></i> Planet</a>
             </div>
             <nav class="pt-3 d-none d-md-block"><ul id="nav"></ul></nav>
             <ul class="pt-2" id="icons">
@@ -263,7 +265,7 @@ function displayNav(data){
     });
 
     try {
-        if(url == "/PlantPlanet/index.html"){
+        if(url == "/PlantPlanet/index.html" || url == "/PlantPlanet/"){
             filter();
         }
         ajaxData("durability", displayDurability);
