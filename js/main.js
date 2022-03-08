@@ -19,7 +19,7 @@ $('#m').change(filter);
 //-Dohvatanje podata-
 function ajaxData(file, callback){
     $.ajax({
-        url: "../assets/data/" + file + ".json",
+        url: "../data/" + file + ".json",
         method: "get",
         dataType: "json",
         success: function(response){
