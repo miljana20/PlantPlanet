@@ -431,7 +431,7 @@ function filterShipping(plants){
 
 //-Filtriranje po dostupnosti proizvoda-
 function filterDiscounted(plants){  
-    if($('#discounted:checked').length != 0 || $('#disc-div').length != 0){
+    if($('#discounted:checked').length != 0 || url=="/PlantPlanet/index.html" || url=="/PlantPlanet/"){
         return plants.filter(plant => plant.price.discount != "")
     }
     else return plants;   
@@ -448,9 +448,9 @@ function filterMaxPrice(plants){
 
 //-Sortiranje po cijeni proizvoda-
 function sort(plants){
-    if($("#sort").length != 0 || url=="/index.html"){
+    if($("#sort").length != 0 || url=="/PlantPlanet/index.html" || url=="/PlantPlanet/"){
         let by = $('#sort').val();
-        if(url=="/index.html"){by="discount"}
+        if(url=="/PlantPlanet/index.html" || url=="/PlantPlanet/"){by="discount"}
         switch(by){
             case "price-asc":{
                 return plants.sort((a,b) => a.price.new - b.price.new);
