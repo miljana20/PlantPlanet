@@ -1,4 +1,5 @@
-let url = window.location.pathname;
+$(document).ready( function(){
+    let url = window.location.pathname;
 
 //-Animacija pri učitavanju stranice-
 window.onload = function() {
@@ -897,3 +898,4 @@ function al(name, type, x){
     }
     location.reload();
 }
+});
