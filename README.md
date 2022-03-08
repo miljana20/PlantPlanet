@@ -1,2 +1,2 @@
 # PlantPlanet
-Pleace of love for nature.
+Place of love for nature.
