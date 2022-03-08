@@ -1,5 +1,5 @@
 let url = window.location.pathname;
-
+console.log(url);
 //-Animacija pri učitavanju stranice-
 window.onload = function() {
     setTimeout(()=>{
@@ -19,7 +19,7 @@ $('#m').change(filter);
 //-Dohvatanje podata-
 function ajaxData(file, callback){
     $.ajax({
-        url: $("#slider").lenght!=0 ? "assets/data/":"data/" + file + ".json",
+        url: "../assets/data/" + file + ".json",
         method: "get",
         dataType: "json",
         success: function(response){
