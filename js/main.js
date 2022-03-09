@@ -139,7 +139,7 @@ function displayShipping(){
 function displayLinks(data){
     html = "";
     for(d of data){
-        html += '<p><a href=url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? '' : '../'+ `${ d.href}` target="_blank"><i class="' + d.class + '"></i> ' + d.title + '</a></p>'
+        html += `<p><a href='${url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? '' : '../'}${ d.href}' target="_blank"><i class='${d.class}'></i>${d.title}</a></p>`
     }
     $('#link').append(html);
 }
