@@ -102,7 +102,7 @@ function displayFooter(){
     html += `<div class="container row mx-auto"> 
                 <div class="col-12 col-md-4 mb-4">
                     <div class="logo">
-                        <a href="' + url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? '../PlantPlanet/index.html' : '../index.html'"><i class="fab fa-pagelines"></i> Planet</a>
+                        <a href=url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? '../PlantPlanet/index.html' : '../index.html'><i class="fab fa-pagelines"></i> Planet</a>
                     </div>
                     <p>~ Place of love for nature ~</p>
                 </div>
@@ -139,7 +139,7 @@ function displayShipping(){
 function displayLinks(data){
     html = "";
     for(d of data){
-        html += '<p><a href="' + url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? '' : '../'+ d.href+'" target="_blank"><i class="' + d.class + '"></i> ' + d.title + '</a></p>'
+        html += '<p><a href=url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? '' : '../'+ `${ d.href}` target="_blank"><i class="' + d.class + '"></i> ' + d.title + '</a></p>'
     }
     $('#link').append(html);
 }
