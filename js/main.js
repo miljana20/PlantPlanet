@@ -48,7 +48,7 @@ function getLocalStorageItem(name){
 function displayHeader(data){
     let html = "";
     html += `<div class="logo pt-3">
-                <a href=url=="/PlantPlanet/index.html" || url=="/PlantPlanet/" ? "../PlantPlanet/index.html" : "../index.html"><i class="fab fa-pagelines"></i> Planet</a>
+                <a href="../index.html"><i class="fab fa-pagelines"></i> Planet</a>
             </div>
             <nav class="pt-3 d-none d-md-block"><ul id="nav"></ul></nav>
             <ul class="pt-2" id="icons">
@@ -102,7 +102,7 @@ function displayFooter(){
     html += `<div class="container row mx-auto"> 
                 <div class="col-12 col-md-4 mb-4">
                     <div class="logo">
-                        <a href=url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? '../PlantPlanet/index.html' : '../index.html'><i class="fab fa-pagelines"></i> Planet</a>
+                        <a href=`${url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? '../PlantPlanet/index.html' : '../index.html'}`><i class="fab fa-pagelines"></i> Planet</a>
                     </div>
                     <p>~ Place of love for nature ~</p>
                 </div>
