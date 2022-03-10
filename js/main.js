@@ -506,7 +506,7 @@ function createCard(id){
                         <div class="crd rounded">
                             <div class="row justify-content-between p-1 p-sm-3 p-lg-5 w-100">
                                 <div class="col-md-6 d-none d-md-block">
-                                    <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}" class="w-75" id="big-one"/>
+                                    <img src="${url == "/PlantPlanet/index.html" || url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}" class="w-75" id="big-one"/>
                                     <div class="row justify-content-between p-2 w-100">
                                         ${retrnMicroImgs(p.id)}
                                     </div>
@@ -574,11 +574,11 @@ function retrnMicroImgs(id){
     for(let p of pl){
         if(p.id==id){
             html +=`<div class="col-5 p-3" onclick="displayMicroImgs(${p.id}, 1)">
-                        <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}"/>
+                        <img src="${url == "/PlantPlanet/index.html" || url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 1)}" alt="${p.img.alt}"/>
                     </div>`
             if(p.img.src.length==3){
                 html +=`<div class="col-5 p-3" onclick="displayMicroImgs(${p.id}, 2)">
-                            <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 2)}" alt="${p.img.alt}"/>
+                            <img src="${url == "/PlantPlanet/index.html" || url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 2)}" alt="${p.img.alt}"/>
                         </div>`
             }
         }
@@ -633,7 +633,7 @@ function createSidebar(array, type){
             for(i of array){
                 if(type == "cart" ? p.id==i.id : p.id==i){
                     html +=`<div class="w col-8 col-md-4 m-3 p-3 w-bg">
-                                <img src="${url == "/PlantPlanet/index.html" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
+                                <img src="${url == "/PlantPlanet/index.html" || url == "/PlantPlanet/" ? "assets/" : ""}${getImg(p.img.src, 0)}" alt="${p.img.alt}"/>
                                 <div class="p-3">
                                     <h5>${p.name}</h5>
                                     <p class="price h2">${p.price.new}$ <mark>${p.price.old ? p.price.old + "$" : ""}</mark></p>
@@ -659,7 +659,7 @@ function createSidebar(array, type){
         }
     }
     else {
-        html += `<p class="mt-5">Your ${type} is empty!<br/>Visit our <a href="${url == "/PlantPlanet/index.html" ? "assets/" : ""}shop.html">shop</a> to add new items.</p>`;
+        html += `<p class="mt-5">Your ${type} is empty!<br/>Visit our <a href="${url == "/PlantPlanet/index.html" || url == "/PlantPlanet/" ? "assets/" : ""}shop.html">shop</a> to add new items.</p>`;
     }
     html += "</div></div>"
     $("main").append(html);
