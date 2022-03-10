@@ -876,7 +876,7 @@ function orderValidation(){
     err += validation(nRegex, name, name.value, 30, fullNameMessage);
     err += validation(eRegex, email, email.value, 50, emailMessage);
     if(loc == null){
-        $("#loc-p").html("**Pleace, chose location.");
+        $("#loc-p").html("**Please, choose location.");
         err++;
     }
     if(!loc.value){
