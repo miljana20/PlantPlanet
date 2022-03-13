@@ -48,7 +48,7 @@ function getLocalStorageItem(name){
 function displayHeader(data){
     let html = "";
     html += `<div class="logo pt-3">
-                <a href="../index.html"><i class="fab fa-pagelines"></i> Planet</a>
+                <a href="${url == '/PlantPlanet/index.html' || url == '/PlantPlanet/' ? 'index.html' : '../index.html'}"><i class="fab fa-pagelines"></i> Planet</a>
             </div>
             <nav class="pt-3 d-none d-md-block"><ul id="nav"></ul></nav>
             <ul class="pt-2" id="icons">
@@ -77,7 +77,7 @@ function displayHeader(data){
 
     displayFooter();
 
-    if(url == "/PlantPlanet/index.html"){
+    if(url == "/PlantPlanet/index.html" || url == "/PlantPlanet/"){
         localStorage.setItem("slajder",JSON.stringify(data));
         changeSlide();
     }
